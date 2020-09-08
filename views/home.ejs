@@ -39,17 +39,17 @@
   <!-- included navbar using ejs  -->
   <%- include("navbar") %>
 
-  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4">
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4" id="main">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../static/images/cro_1.jpg" class="d-block w-100" alt="..." style="height: 675px;">
+          <img src="../static/images/main_crousel/cro_1.jpg" class="d-block w-100" alt="..." style="height: 675px;">
         </div>
         <div class="carousel-item">
-          <img src="../static/images/cro_2.jpg" class="d-block w-100" alt="..." style="height: 675px;">
+          <img src="../static/images/main_crousel/cro_2.jpg" class="d-block w-100" alt="..." style="height: 675px;">
         </div>
         <div class="carousel-item">
-          <img src="../static/images/cro_3.jpg" class="d-block w-100" alt="..." style="height: 675px;">
+          <img src="../static/images/main_crousel/cro_3.jpg" class="d-block w-100" alt="..." style="height: 675px;">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -61,6 +61,60 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <!-- showing most purchased products -->
+    <div class="col-md-10 mx-auto">
+      <h3 class="text-center" style="color: orange; margin-top: 100px;">MOST PURCHASED PRODUCTS</h3>
+      <div class="card-deck">
+        <div class="col-md-3 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-3 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-3 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-3 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-3 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- showing product type -->
+    <div class="col-md-8 mx-auto">
+      <h3 class="text-center" style="color: orange; margin-top: 100px;">OUR PRODUCTS</h3>
+      <div class="card-deck">
+        <div class="col-md-4 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="card">
+            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="..."> </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -70,7 +124,7 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-  <script src="../static/js_files/nav_bar.js"></script>
+  <script src="../static/js_files/home_screen.js"></script>
 </body>
 
 </html>

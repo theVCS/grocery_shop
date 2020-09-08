@@ -1,14 +1,27 @@
 $(document).ready(function () {
 
+    //checking for expansion of menu bar
+    if (localStorage.getItem("expand") == 1) {
+        let dashboard = document.getElementById("dashboard");
+        let main = document.getElementById("main");
+
+        dashboard.style.display = "block";
+        main.className = "col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4"
+    } else {
+        let dashboard = document.getElementById("dashboard");
+        let main = document.getElementById("main");
+        dashboard.style.display = "none";
+        main.className = "";
+    }
+
     // for menu button
-    $(window).resize(function() {
+    $(window).resize(function () {
         if (window.innerWidth <= 767) {
             document.getElementById("menu").style.display = "none";
-        }
-        else{
+        } else {
             document.getElementById("menu").style.display = "inline";
         }
-      });
+    });
 
     // search query
     $('#search').submit(function (event) {
@@ -60,17 +73,18 @@ $(document).ready(function () {
     })
 
     // click event on menu button
-    $("#menu").click(function(){
+    $("#menu").click(function () {
         let dashboard = document.getElementById("dashboard");
         let main = document.getElementById("main");
 
         if (dashboard.style.display == "none") {
             dashboard.style.display = "block";
             main.className = "col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4"
-        }
-        else{
+            localStorage.setItem("expand", 1)
+        } else {
             dashboard.style.display = "none";
-            main.className = ""
+            main.className = "";
+            localStorage.setItem("expand", 0)
         }
     })
 })
