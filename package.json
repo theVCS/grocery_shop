@@ -1,0 +1,18 @@
+{
+  "name": "grocery_shop",
+  "version": "1.0.0",
+  "description": "this is my first project which i will push to git account",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prince Mishra",
+  "license": "ISC"
+}
