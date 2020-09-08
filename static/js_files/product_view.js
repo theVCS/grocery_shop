@@ -88,45 +88,54 @@ $(document).ready(function () {
         }
     })
 
-    //viewing product
-    $("#product_view").click(function (event) {
-        // prevents the default behaviour of submitting the form
-        event.preventDefault();
+    //viewing related products
+    // $("#product_view").click(function (event) {
+    //     // prevents the default behaviour of submitting the form
+    //     event.preventDefault();
 
-        // getting the product_id from the url
-        let url_string = $(this)[0].href;
-        var url = new URL(url_string);
-        var product_id = url.searchParams.get("product_id");
+    //     // getting the product_id from the url
+    //     let url_string = $(this)[0].href;
+    //     var url = new URL(url_string);
+    //     var product_id = url.searchParams.get("product_id");
 
-        // changing url
-        window.history.replaceState({"state": 10}, "", url_string);
+    //     // changing url
+    //     window.history.replaceState({"state": 10}, "", url_string);
 
-        // variable to make ajax request
-        var request;
+    //     // variable to make ajax request
+    //     var request;
 
-        // Abort any pending request
-        if (request) {
-            request.abort();
-        }
+    //     // Abort any pending request
+    //     if (request) {
+    //         request.abort();
+    //     }
 
-        // Fire off the request to /search
-        request = $.ajax({
-            url: "/product_view",
-        });
+    //     // Fire off the request to /search
+    //     request = $.ajax({
+    //         url: "/product_view",
+    //     });
 
-        // Callback handler that will be called on success
-        request.done(function (response, textStatus, jqXHR) {
-            // rendering another page
-            $("html").html(response)
-        });
+    //     // Callback handler that will be called on success
+    //     request.done(function (response, textStatus, jqXHR) {
+    //         // rendering another page
+    //         $("html").html(response)
+    //     });
 
-        // Callback handler that will be called on failure
-        request.fail(function (jqXHR, textStatus, errorThrown) {
-            // Log the error to the console
-            console.error(
-                "The following error occurred: " +
-                textStatus, errorThrown
-            );
-        });
-    })
+    //     // Callback handler that will be called on failure
+    //     request.fail(function (jqXHR, textStatus, errorThrown) {
+    //         // Log the error to the console
+    //         console.error(
+    //             "The following error occurred: " +
+    //             textStatus, errorThrown
+    //         );
+    //     });
+    // })
+
+    var carousel = $('#carousel'),
+        threshold = 150,
+        slideWidth = 500,
+        dragStart,
+        dragEnd;
+
+        
+    
 })

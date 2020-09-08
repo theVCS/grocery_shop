@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/grocery', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-const port = 8000;
+const port = 80;
 
 // it provides us all the things in static folder in url /static
 app.use('/static', express.static('static'));
@@ -30,7 +30,19 @@ app.get('/', (req, res) => {
     res.status(200).render("home", params);
 })
 
-app.post("/search", (req, res)=>{
+app.get("/product_view", (req, res) => {
+
+    //gettting product id
+    let product_id = req.query.product_id;
+
+    params = {
+        "title": "Product View",
+    }
+    
+    res.status(200).render("product_view", params);
+})
+
+app.post("/search", (req, res) => {
 
     params = {
         "title": "home",
