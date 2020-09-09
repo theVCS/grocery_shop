@@ -40,17 +40,17 @@
 
         <!-- showing details of a product -->
         <div style="margin-top:100px;">
-            <h3 class="text-center" style="color: orange; margin: 100px 0;">Product Name</h3>
+            <h3 class="text-center" style="color: orange; margin: 100px 0;"><%=product["name"]%></h3>
             <div class="card-deck">
                 <div class="col-md-3">
                     <div class="card" style="border:none;">
-                        <img src="../static/images/products/1.jfif" class="card-img-top" alt="...">
+                        <img src="../static/images/products/<%=product["img"]%>.jfif" class="card-img-top" alt="...">
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <a href="#" class="btn" style="background-color: orange; color: white;"><img src="../static/icons/buy.svg" alt="" style="width: 1.5rem;"> Buy</a>
+                                <a href="/buy?product_id=1" class="btn" style="background-color: orange; color: white;" id="buy"><img src="../static/icons/buy.svg" alt="" style="width: 1.5rem;"> Buy</a>
                             </div>
                             <div class="col-md-6">
-                                <a href="#" class="btn" style="background-color: orange; color: white;"><img src="../static/icons/wishlist.svg" alt="" style="width: 1.5rem;"> Wishlist</a>
+                                <a href="/wishlist?product_id=1" class="btn" style="background-color: orange; color: white;" id="wishlist"><img src="../static/icons/wishlist.svg" alt="" style="width: 1.5rem;"> Wishlist</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                 <div class="col-md-9">
                     <div class="card" style="border: none;">
                         <h5 class="card-title" style="color: orange;">Description</h5>
-                        <p class="card-text" style="font-size: 1rem; font-family: 'Kumbh Sans', sans-serif;">Lorem ipsum
+                        <p class="card-text" style="font-size: 1rem; font-family: 'Kumbh Sans', sans-serif;"><%=product["description"]%> Lorem ipsum
                             dolor sit amet consectetur adipisicing elit. Incidunt, dolorum aliquid, consequatur repellat
                             architecto natus distinctio debitis quae esse ex commodi expedita, a delectus! Aliquid vero
                             natus reiciendis, minima laudantium voluptas numquam ducimus consectetur doloremque expedita

@@ -66,30 +66,18 @@
     <div class="col-md-10 mx-auto">
       <h3 class="text-center" style="color: orange; margin-top: 100px;">MOST PURCHASED PRODUCTS</h3>
       <div class="card-deck">
+      <%  
+      for (let i = 0; i < top_products.length; i++) {
+      const element = top_products[i];
+      %>
         <div class="col-md-3 mt-5">
-          <div class="card">
-            <a href="/product_view?product_id=1" id="product_view"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="...">
+          <div class="card" style="border: none;">
+            <a href="/product_view?product_id=<%=element["id"]%>" id="product_view"> <img src="../static/images/products/<%=element["img"]%>.jfif"
+                class="card-img-top" alt="<%=element["name"]%>" style="height: 18rem; width: 15rem;">
             </a>
           </div>
         </div>
-        <div class="col-md-3 mt-5">
-          <div class="card">
-            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="...">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 mt-5">
-          <div class="card">
-            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="...">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 mt-5">
-          <div class="card">
-            <a href="javascript:void(0);"> <img src="../static/images/products/1.jfif" class="card-img-top" alt="...">
-            </a>
-          </div>
-        </div>
+      <% } %>
       </div>
     </div>
 
@@ -99,7 +87,8 @@
       <div class="card-deck">
         <div class="col-md-4 mt-5">
           <div class="card" style="border: none;">
-            <a href="javascript:void(0);"> <img src="../static/images/pro_type/vegetables.jpg" class="card-img-top" alt="grocery">
+            <a href="/product_type?type=grocery" class="product_type"> <img
+                src="../static/images/pro_type/vegetables.jpg" class="card-img-top" alt="grocery">
             </a>
             <div class="card-body">
               <h5 class="card-title text-center" style="color: orange;">GROCERIES</h5>
@@ -108,7 +97,8 @@
         </div>
         <div class="col-md-4 mt-5">
           <div class="card" style="border: none;">
-            <a href="javascript:void(0);"> <img src="../static/images/pro_type/stationery.jpg" class="card-img-top" alt="stationery">
+            <a href="/product_type?type=stationery" class="product_type"> <img
+                src="../static/images/pro_type/stationery.jpg" class="card-img-top" alt="stationery">
             </a>
             <div class="card-body">
               <h5 class="card-title text-center" style="color: orange;">STATIONERY</h5>
@@ -117,7 +107,8 @@
         </div>
         <div class="col-md-4 mt-5">
           <div class="card" style="border: none;">
-            <a href="javascript:void(0);"> <img src="../static/images/pro_type/cosmetics.jpg" class="card-img-top" alt="cosmetics">
+            <a href="/product_type?type=cosmetics" id="cosmetics" class="product_type"> <img
+                src="../static/images/pro_type/cosmetics.jpg" class="card-img-top" alt="cosmetics">
             </a>
             <div class="card-body">
               <h5 class="card-title text-center" style="color: orange;">COSMETICS</h5>
@@ -140,6 +131,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="../static/bootstrap.min.js"></script>
+  <script src="../static/js_files/nav_bar.js"></script>
   <script src="../static/js_files/home_screen.js"></script>
 </body>
 

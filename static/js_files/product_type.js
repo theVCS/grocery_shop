@@ -88,89 +88,49 @@ $(document).ready(function () {
         }
     })
 
-    //viewing product
-    // $("#product_view").click(function (event) {
-    //     // prevents the default behaviour of submitting the form
-    //     event.preventDefault();
+    show_products();
 
-    //     // getting the product_id from the url
-    //     let url_string = $(this)[0].href;
-    //     var url = new URL(url_string);
-    //     var product_id = url.searchParams.get("product_id");
+    function show_products() {
+        var page = parseInt(localStorage.getItem("page"));
+        var start = (page - 1)*8;
+        var items = JSON.parse(localStorage.getItem("product")).slice(start, 8 + start)
 
-    //     // changing url
-    //     window.history.replaceState({
-    //         "state": 10
-    //     }, "", url_string);
+        // getting to be displayed
+        let str = "";
+        items.forEach(element => {
+            str += `<div class="col-md-3 mt-5">
+            <div class="card" style="border: none;">
+                <a href="/product_view?product_id=` + element['id'] + `" id="product_view"> <img
+                        src="../static/images/products/`+ element['img'] +`.jfif" class="card-img-top" alt="..."
+                        style="height: 15rem; width: 15rem;">
+                </a>
+            </div>
+        </div>`;
+        });
+        document.getElementById("content").innerHTML = str;
+    }
 
-    //     // variable to make ajax request
-    //     var request;
-
-    //     // Abort any pending request
-    //     if (request) {
-    //         request.abort();
-    //     }
-
-    //     // Fire off the request to /search
-    //     request = $.ajax({
-    //         url: "/product_view",
-    //     });
-
-    //     // Callback handler that will be called on success
-    //     request.done(function (response, textStatus, jqXHR) {
-    //         // rendering another page
-    //         $("html").html(response)
-    //     });
-
-    //     // Callback handler that will be called on failure
-    //     request.fail(function (jqXHR, textStatus, errorThrown) {
-    //         // Log the error to the console
-    //         console.error(
-    //             "The following error occurred: " +
-    //             textStatus, errorThrown
-    //         );
-    //     });
-    // })
-
-    // $('.product_type').click(function (event) {
-    //     // prevents the default behaviour of submitting the form
-    //     event.preventDefault();
-
-    //     // getting the product_id from the url
-    //     let url_string = $(this)[0].href;
-
-    //     // changing url
-    //     window.history.replaceState({
-    //         "state": 10
-    //     }, "", url_string);
-
-    //     // variable to make ajax request
-    //     var request;
-
-    //     // Abort any pending request
-    //     if (request) {
-    //         request.abort();
-    //     }
-
-    //     // Fire off the request to /search
-    //     request = $.ajax({
-    //         url: "/product_type",
-    //     });
-
-    //     // Callback handler that will be called on success
-    //     request.done(function (response, textStatus, jqXHR) {
-    //         // rendering another page
-    //         $("html").html(response)
-    //     });
-
-    //     // Callback handler that will be called on failure
-    //     request.fail(function (jqXHR, textStatus, errorThrown) {
-    //         // Log the error to the console
-    //         console.error(
-    //             "The following error occurred: " +
-    //             textStatus, errorThrown
-    //         );
-    //     });
-    // })
+    $("#next").click(function(event){
+        if(localStorage.getItem("page") == localStorage.getItem("total_page"))
+        {
+            localStorage.setItem("page", 1)
+        }
+        else
+        {
+            localStorage.setItem("page", parseInt(localStorage.getItem("page")) + 1)
+        }
+        show_products();
+    })
     
+    $("#prev").click(function(event){
+        if(localStorage.getItem("page") == 1)
+        {
+            localStorage.setItem("page", localStorage.getItem("total_page"))
+        }
+        else
+        {
+            localStorage.setItem("page", parseInt(localStorage.getItem("page")) - 1)
+        }
+        show_products();
+    })
 })

@@ -72,24 +72,24 @@ $(document).ready(function () {
     //     });
     // })
 
-    // click event on menu button
-    $("#menu").click(function () {
-        let dashboard = document.getElementById("dashboard");
-        let main = document.getElementById("main");
+    // // click event on menu button
+    // $("#menu").click(function () {
+    //     let dashboard = document.getElementById("dashboard");
+    //     let main = document.getElementById("main");
 
-        if (dashboard.style.display == "none") {
-            dashboard.style.display = "block";
-            main.className = "col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4"
-            localStorage.setItem("expand", 1)
-        } else {
-            dashboard.style.display = "none";
-            main.className = "";
-            localStorage.setItem("expand", 0)
-        }
-    })
+    //     if (dashboard.style.display == "none") {
+    //         dashboard.style.display = "block";
+    //         main.className = "col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4"
+    //         localStorage.setItem("expand", 1)
+    //     } else {
+    //         dashboard.style.display = "none";
+    //         main.className = "";
+    //         localStorage.setItem("expand", 0)
+    //     }
+    // })
 
-    //viewing product
-    // $("#product_view").click(function (event) {
+    // // buying the product
+    // $("#buy").click(function (event) {
     //     // prevents the default behaviour of submitting the form
     //     event.preventDefault();
 
@@ -113,48 +113,7 @@ $(document).ready(function () {
 
     //     // Fire off the request to /search
     //     request = $.ajax({
-    //         url: "/product_view",
-    //     });
-
-    //     // Callback handler that will be called on success
-    //     request.done(function (response, textStatus, jqXHR) {
-    //         // rendering another page
-    //         $("html").html(response)
-    //     });
-
-    //     // Callback handler that will be called on failure
-    //     request.fail(function (jqXHR, textStatus, errorThrown) {
-    //         // Log the error to the console
-    //         console.error(
-    //             "The following error occurred: " +
-    //             textStatus, errorThrown
-    //         );
-    //     });
-    // })
-
-    // $('.product_type').click(function (event) {
-    //     // prevents the default behaviour of submitting the form
-    //     event.preventDefault();
-
-    //     // getting the product_id from the url
-    //     let url_string = $(this)[0].href;
-
-    //     // changing url
-    //     window.history.replaceState({
-    //         "state": 10
-    //     }, "", url_string);
-
-    //     // variable to make ajax request
-    //     var request;
-
-    //     // Abort any pending request
-    //     if (request) {
-    //         request.abort();
-    //     }
-
-    //     // Fire off the request to /search
-    //     request = $.ajax({
-    //         url: "/product_type",
+    //         url: "/buy",
     //     });
 
     //     // Callback handler that will be called on success
@@ -173,4 +132,47 @@ $(document).ready(function () {
     //     });
     // })
     
+    // wishlisting the product
+    // $("#whishlist").click(function (event) {
+    //     // prevents the default behaviour of submitting the form
+    //     event.preventDefault();
+
+    //     // getting the product_id from the url
+    //     let url_string = $(this)[0].href;
+    //     var url = new URL(url_string);
+    //     var product_id = url.searchParams.get("product_id");
+
+    //     // changing url
+    //     window.history.replaceState({
+    //         "state": 10
+    //     }, "", url_string);
+
+    //     // variable to make ajax request
+    //     var request;
+
+    //     // Abort any pending request
+    //     if (request) {
+    //         request.abort();
+    //     }
+
+    //     // Fire off the request to /search
+    //     request = $.ajax({
+    //         url: "/whishlist",
+    //     });
+
+    //     // Callback handler that will be called on success
+    //     request.done(function (response, textStatus, jqXHR) {
+    //         // rendering another page
+    //         $("html").html(response)
+    //     });
+
+    //     // Callback handler that will be called on failure
+    //     request.fail(function (jqXHR, textStatus, errorThrown) {
+    //         // Log the error to the console
+    //         console.error(
+    //             "The following error occurred: " +
+    //             textStatus, errorThrown
+    //         );
+    //     });
+    // })
 })

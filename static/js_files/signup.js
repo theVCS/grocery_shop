@@ -88,89 +88,40 @@ $(document).ready(function () {
         }
     })
 
-    //viewing product
-    // $("#product_view").click(function (event) {
-    //     // prevents the default behaviour of submitting the form
-    //     event.preventDefault();
+    $('#visibility').click(function () {
 
-    //     // getting the product_id from the url
-    //     let url_string = $(this)[0].href;
-    //     var url = new URL(url_string);
-    //     var product_id = url.searchParams.get("product_id");
+        if (this.src == "http://localhost/static/icons/invisibility.svg") {
+            this.src = "../static/icons/visibility.svg"
+        } else {
+            this.src = "../static/icons/invisibility.svg"
+        }
 
-    //     // changing url
-    //     window.history.replaceState({
-    //         "state": 10
-    //     }, "", url_string);
+        if ($('#pass')[0].type == 'text') {
+            $('#pass')[0].type = 'password'
+            $('#cpass')[0].type = 'password'
+        } else {
+            $('#pass')[0].type = 'text'
+            $('#cpass')[0].type = 'text'
+        }
+    })
 
-    //     // variable to make ajax request
-    //     var request;
+    // function to populate the address section
+    getData(6295630, 'continent');
 
-    //     // Abort any pending request
-    //     if (request) {
-    //         request.abort();
-    //     }
+    function getData(location, target) {
+        url = `http://www.geonames.org/childrenJSON?geonameId=${location}`;
+        fetch(url).then(response => {
+            return response.json()
+        }).then(data => {
 
-    //     // Fire off the request to /search
-    //     request = $.ajax({
-    //         url: "/product_view",
-    //     });
+            let target_sel = document.getElementById(target)
 
-    //     // Callback handler that will be called on success
-    //     request.done(function (response, textStatus, jqXHR) {
-    //         // rendering another page
-    //         $("html").html(response)
-    //     });
+            let str = ""
+            data.geonames.forEach(element => {
+                str += `<option value="${element.geonameId}">${element.name}</option>`
+            });
 
-    //     // Callback handler that will be called on failure
-    //     request.fail(function (jqXHR, textStatus, errorThrown) {
-    //         // Log the error to the console
-    //         console.error(
-    //             "The following error occurred: " +
-    //             textStatus, errorThrown
-    //         );
-    //     });
-    // })
-
-    // $('.product_type').click(function (event) {
-    //     // prevents the default behaviour of submitting the form
-    //     event.preventDefault();
-
-    //     // getting the product_id from the url
-    //     let url_string = $(this)[0].href;
-
-    //     // changing url
-    //     window.history.replaceState({
-    //         "state": 10
-    //     }, "", url_string);
-
-    //     // variable to make ajax request
-    //     var request;
-
-    //     // Abort any pending request
-    //     if (request) {
-    //         request.abort();
-    //     }
-
-    //     // Fire off the request to /search
-    //     request = $.ajax({
-    //         url: "/product_type",
-    //     });
-
-    //     // Callback handler that will be called on success
-    //     request.done(function (response, textStatus, jqXHR) {
-    //         // rendering another page
-    //         $("html").html(response)
-    //     });
-
-    //     // Callback handler that will be called on failure
-    //     request.fail(function (jqXHR, textStatus, errorThrown) {
-    //         // Log the error to the console
-    //         console.error(
-    //             "The following error occurred: " +
-    //             textStatus, errorThrown
-    //         );
-    //     });
-    // })
-    
+            target_sel.innerHTML = str;
+        })
+    }
 })

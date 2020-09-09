@@ -1,76 +1,86 @@
-$(document).ready(function () {
+// $(document).ready(function () {
+//     // search query
+//     $('.home').click(function (event) {
 
-    // for menu button
-    $(window).resize(function() {
-        if (window.innerWidth <= 767) {
-            document.getElementById("menu").style.display = "none";
-        }
-        else{
-            document.getElementById("menu").style.display = "inline";
-        }
-      });
+//         // variable to make ajax request
+//         var request;
 
-    // search query
-    $('#search').submit(function (event) {
+//         // prevents the default behaviour of submitting the form
+//         event.preventDefault();
 
-        // variable to make ajax request
-        var request;
+//         // Abort any pending request
+//         if (request) {
+//             request.abort();
+//         }
 
-        // prevents the default behaviour of submitting the form
-        event.preventDefault();
+//         // Fire off the request to /search
+//         request = $.ajax({
+//             url: "/",
+//             type: "get",
+//         });
 
-        // Abort any pending request
-        if (request) {
-            request.abort();
-        }
+//         // Callback handler that will be called on success
+//         request.done(function (response, textStatus, jqXHR) {
+//             // rendering another page
+//             $("html").html(response)
+//         });
 
-        // disabled the form from getting any data now
-        $("#search_query").prop("disabled", true)
+//         // Callback handler that will be called on failure
+//         request.fail(function (jqXHR, textStatus, errorThrown) {
+//             // Log the error to the console
+//             console.error(
+//                 "The following error occurred: " +
+//                 textStatus, errorThrown
+//             );
+//         });
 
-        // Fire off the request to /search
-        request = $.ajax({
-            url: "/search",
-            type: "post",
-            data: {
-                "search_query": $("#search_query").val(),
-            }
-        });
+//         // Callback handler that will be called regardless
+//         // if the request failed or succeeded
+//         request.always(function () {
+//             // Reenable the inputs
+//             $("#search_query").prop("disabled", false);
+//         });
+//     })
+    
+//     $('.orders').click(function (event) {
 
-        // Callback handler that will be called on success
-        request.done(function (response, textStatus, jqXHR) {
-            // rendering another page
-            $("main").html(response)
-        });
+//         // variable to make ajax request
+//         var request;
 
-        // Callback handler that will be called on failure
-        request.fail(function (jqXHR, textStatus, errorThrown) {
-            // Log the error to the console
-            console.error(
-                "The following error occurred: " +
-                textStatus, errorThrown
-            );
-        });
+//         // prevents the default behaviour of submitting the form
+//         event.preventDefault();
 
-        // Callback handler that will be called regardless
-        // if the request failed or succeeded
-        request.always(function () {
-            // Reenable the inputs
-            $("#search_query").prop("disabled", false);
-        });
-    })
+//         // Abort any pending request
+//         if (request) {
+//             request.abort();
+//         }
 
-    // click event on menu button
-    $("#menu").click(function(){
-        let dashboard = document.getElementById("dashboard");
-        let main = document.getElementById("main");
+//         // Fire off the request to /search
+//         request = $.ajax({
+//             url: "/buy",
+//             type: "get",
+//         });
 
-        if (dashboard.style.display == "none") {
-            dashboard.style.display = "block";
-            main.className = "col-md-9 ml-sm-auto col-lg-10 px-md-4 my-4"
-        }
-        else{
-            dashboard.style.display = "none";
-            main.className = ""
-        }
-    })
-})
+//         // Callback handler that will be called on success
+//         request.done(function (response, textStatus, jqXHR) {
+//             // rendering another page
+//             $("html").html(response)
+//         });
+
+//         // Callback handler that will be called on failure
+//         request.fail(function (jqXHR, textStatus, errorThrown) {
+//             // Log the error to the console
+//             console.error(
+//                 "The following error occurred: " +
+//                 textStatus, errorThrown
+//             );
+//         });
+
+//         // Callback handler that will be called regardless
+//         // if the request failed or succeeded
+//         request.always(function () {
+//             // Reenable the inputs
+//             $("#search_query").prop("disabled", false);
+//         });
+//     })
+// })
